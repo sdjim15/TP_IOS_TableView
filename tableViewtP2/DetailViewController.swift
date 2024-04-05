@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        title = "Country Details"
     }
     override func viewWillAppear(_ animated: Bool) {
         Country_Name.text = property?.name

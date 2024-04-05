@@ -11,11 +11,19 @@ class AddViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Add Country"
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBOutlet weak var IsoCode: UITextField!
+    @IBOutlet weak var Continent: UITextField!
+    @IBOutlet weak var CountryName: UITextField!
+    @IBAction func AddNewCountry(_ sender: Any) {
+        print(Continent.text!, CountryName.text!, IsoCode.text!)
+        getAllCountries().append(Country(isoCode: "at", name: "Austria",continent: "Europe"))
+    }
+    
     /*
     // MARK: - Navigation
 

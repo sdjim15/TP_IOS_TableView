@@ -13,6 +13,8 @@ class CountriesTableViewController: UITableViewController {
     let continents = getContinents()
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Country List"
+        configureItem()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,6 +28,33 @@ class CountriesTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return continents.count
+    }
+    
+    private func configureItem(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self, 
+            action: #selector(nextButtonTapped)
+            
+        )
+        
+    }
+    @objc func nextButtonTapped() {
+            // Instantiate the new view controller
+            let nextViewController = NextViewController()
+            let addViewController = AddViewController()
+        if let secondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "10") as? AddViewController{
+            
+            // Present or push the view controller
+            // Example:
+            // present(secondViewController, animated: true, completion: nil)
+            
+            // Push the new view controller onto the navigation stack
+            self.navigationController?.pushViewController(secondViewController, animated: true)
+        }
+    }
+    class NextViewController: UIViewController {
+        // Your code for the next view controller
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
